@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { HeroOrb } from "./HeroOrb";
+import { AnimatedBlob3D } from "./AnimatedBlob3D";
 import { FloatingCard } from "./FloatingCard";
 import { useMouseParallax } from "@/hooks/useMouseParallax";
 import { fadeUp, staggerContainer } from "@/lib/motion";
@@ -15,8 +15,8 @@ export function Hero() {
       ref={containerRef as React.RefObject<HTMLElement>}
       className="relative flex min-h-screen items-center justify-center overflow-hidden px-6"
     >
-      {/* Background orb */}
-      <HeroOrb />
+      {/* 3D animated blob */}
+      <AnimatedBlob3D />
 
       {/* Subtle radial gradient overlay */}
       <div

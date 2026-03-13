@@ -30,7 +30,7 @@ export default function RootLayout({
   return (
     <html lang="pt-BR" className={`${GeistSans.variable} ${instrumentSerif.variable}`}>
       {/* GeistSans.className sets Geist as the base font. Instrument Serif is loaded as --font-instrument-serif variable and applied selectively via font-serif Tailwind class on headings. */}
-      <body className={GeistSans.className}>{children}</body>
+      <body className={GeistSans.className} style={{ backgroundColor: "#080810" }}>{children}</body>
     </html>
   );
 }
