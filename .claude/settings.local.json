@@ -1,0 +1,28 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(bash \"C:/Users/Administrator/.claude/plugins/cache/claude-plugins-official/superpowers/5.0.2/skills/brainstorming/scripts/start-server.sh\" --project-dir \"c:/Users/Administrator/Documents/GitHub/PurpleFolio\")",
+      "Bash(bash \"C:/Users/Administrator/.claude/plugins/cache/claude-plugins-official/superpowers/5.0.2/skills/brainstorming/scripts/start-server.sh\" --project-dir \"c:/Users/Administrator/Documents/GitHub/PurpleFolio\" --host 0.0.0.0 --url-host localhost)",
+      "Bash(npx create-next-app@latest . --typescript --tailwind --eslint --app --src-dir --import-alias \"@/*\" --no-git)",
+      "Bash(npx create-next-app@latest . --typescript --tailwind --eslint --app --src-dir --import-alias \"@/*\" --no-git --yes)",
+      "Bash(npx create-next-app@latest --version)",
+      "Bash(npx create-next-app@latest /tmp/purplefolio-scaffold --typescript --tailwind --eslint --app --src-dir --import-alias \"@/*\" --no-git --yes)",
+      "Bash(cp -r /tmp/purplefolio-scaffold/src /c/Users/Administrator/Documents/GitHub/PurpleFolio/)",
+      "Bash(cp -r /tmp/purplefolio-scaffold/public /c/Users/Administrator/Documents/GitHub/PurpleFolio/)",
+      "Bash(cp /tmp/purplefolio-scaffold/package.json /c/Users/Administrator/Documents/GitHub/PurpleFolio/)",
+      "Bash(cp /tmp/purplefolio-scaffold/package-lock.json /c/Users/Administrator/Documents/GitHub/PurpleFolio/)",
+      "Bash(cp /tmp/purplefolio-scaffold/next.config.ts /c/Users/Administrator/Documents/GitHub/PurpleFolio/)",
+      "Bash(cp /tmp/purplefolio-scaffold/tsconfig.json /c/Users/Administrator/Documents/GitHub/PurpleFolio/)",
+      "Bash(cp /tmp/purplefolio-scaffold/postcss.config.mjs /c/Users/Administrator/Documents/GitHub/PurpleFolio/)",
+      "Bash(cp /tmp/purplefolio-scaffold/eslint.config.mjs /c/Users/Administrator/Documents/GitHub/PurpleFolio/)",
+      "Bash(cp /tmp/purplefolio-scaffold/next-env.d.ts /c/Users/Administrator/Documents/GitHub/PurpleFolio/)",
+      "Bash(npm install:*)",
+      "Bash(npm ls:*)",
+      "Bash(git -C /c/Users/Administrator/Documents/GitHub/PurpleFolio status)",
+      "Bash(git add:*)",
+      "Bash(git -C:*)",
+      "Bash(npm uninstall:*)",
+      "Bash(timeout 30 npm run dev)"
+    ]
+  }
+}

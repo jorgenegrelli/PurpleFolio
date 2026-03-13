@@ -61,10 +61,11 @@ border-radius: 16px;
 
 ### Cursor Parallax (floating cards)
 
-- Track `mousemove` on hero section
+- Track `mousemove` on hero section (desktop only — hook returns zero offset on touch devices)
 - Cards shift ±15px on X/Y relative to cursor position
 - Smooth spring: `stiffness: 100, damping: 30`
 - Each card has a slightly different multiplier (0.5x, 0.8x, 1x) for depth
+- On mobile/tablet (cards hidden per responsive table), parallax hook is inactive
 
 ### Section Reveal
 
@@ -89,7 +90,7 @@ border-radius: 16px;
 - **Position:** Sticky, top-0
 - **Background:** `rgba(8, 8, 16, 0.8)` with `backdrop-blur(12px)`
 - **Left:** Logo — "Claude" wordmark in Instrument Serif
-- **Right:** Single CTA button — "Começar grátis"
+- **Right:** Single CTA button — "Começar grátis" — links to `https://claude.ai`
 - **No navigation links** — keeps focus on conversion
 
 ### 2. Hero Section
@@ -112,8 +113,8 @@ Claude helps you write, think, code and create — effortlessly.
 - Font: Geist, `1.25rem`, color: `--text-secondary`
 
 **CTAs:**
-- Primary: "Começar agora" — `bg: #9333ea`, `border-radius: 9999px`, `px-8 py-4`
-- Secondary: "Ver como funciona" — ghost style, `border: 1px solid rgba(255,255,255,0.15)`
+- Primary: "Começar agora" — `bg: #9333ea`, `border-radius: 9999px`, `px-8 py-4`, links to `https://claude.ai`
+- Secondary: "Ver como funciona" — ghost style, `border: 1px solid rgba(255,255,255,0.15)`, smooth scrolls to `#como-funciona` section anchor on click
 
 **Hero Orb:**
 - Absolute positioned, `right: 10%`, `top: 50%`, translated -50%
@@ -124,9 +125,9 @@ Claude helps you write, think, code and create — effortlessly.
 
 | Card | Position | Content |
 |---|---|---|
-| Card 1 | Left, upper | Email preview: "Assunto: Proposta de parceria..." |
-| Card 2 | Right, middle | Code snippet: `const result = await claude.complete(...)` |
-| Card 3 | Right, lower | Summary bullets: "• Reduz tempo de pesquisa..." |
+| Card 1 | `left: -80px, top: 80px` (absolute, relative to hero wrapper div, overflow visible) | Email preview: "Assunto: Proposta de parceria..." |
+| Card 2 | `right: -60px, top: 120px` (absolute, relative to hero wrapper div) | Code snippet: `const result = await claude.complete(...)` |
+| Card 3 | `right: 20px, bottom: 80px` (absolute, relative to hero wrapper div) | Summary bullets: "• Reduz tempo de pesquisa..." |
 
 ### 3. Capabilities Section
 
@@ -137,14 +138,14 @@ Claude helps you write, think, code and create — effortlessly.
 
 **Cards (6 total):**
 
-| # | Icon | Title | Example |
+| # | Lucide Icon | Title | Example |
 |---|---|---|---|
-| 1 | ✍️ | Escrita & Comunicação | "Redija emails, relatórios e textos profissionais em segundos" |
-| 2 | 💻 | Código & Desenvolvimento | "Escreva, explique e revise código em qualquer linguagem" |
-| 3 | 📊 | Análise & Pesquisa | "Resuma documentos longos e extraia insights rapidamente" |
-| 4 | 🎨 | Criatividade & Ideias | "Gere ideias, roteiros, histórias e conteúdo criativo" |
-| 5 | 📋 | Organização & Produtividade | "Planeje projetos, crie listas e organize tarefas complexas" |
-| 6 | 🤝 | Aprendizado & Explicações | "Entenda qualquer assunto com explicações claras e simples" |
+| 1 | `PenLine` | Escrita & Comunicação | "Redija emails, relatórios e textos profissionais em segundos" |
+| 2 | `Code2` | Código & Desenvolvimento | "Escreva, explique e revise código em qualquer linguagem" |
+| 3 | `BarChart2` | Análise & Pesquisa | "Resuma documentos longos e extraia insights rapidamente" |
+| 4 | `Sparkles` | Criatividade & Ideias | "Gere ideias, roteiros, histórias e conteúdo criativo" |
+| 5 | `ListTodo` | Organização & Produtividade | "Planeje projetos, crie listas e organize tarefas complexas" |
+| 6 | `GraduationCap` | Aprendizado & Explicações | "Entenda qualquer assunto com explicações claras e simples" |
 
 ### 4. Como Funciona (Process)
 
@@ -162,13 +163,13 @@ Claude helps you write, think, code and create — effortlessly.
 - Large isolated container with intense purple glow background
 - Headline: "Pronto para começar?"
 - Subtext: "Milhões de pessoas já usam o Claude todos os dias."
-- Single button: "Experimentar agora — é grátis"
+- Single button: "Experimentar agora — é grátis" — links to `https://claude.ai`
 - Visual: centered, generous vertical padding `py-32`
 
 ### 6. Footer
 
 - Minimal: Logo left, copyright right
-- Optional: 2–3 links (Privacidade, Termos, Anthropic)
+- Include 3 links (right side, inline): Privacidade (`#`), Termos (`#`), Anthropic (`https://anthropic.com`)
 
 ---
 
@@ -195,8 +196,8 @@ src/
     CtaSection.tsx
     Footer.tsx
   hooks/
-    useMouseParallax.ts   # Cursor tracking hook
-    useScrollReveal.ts    # InView animation wrapper
+    useMouseParallax.ts   # Cursor tracking hook — returns {x, y} offset values from center
+    useScrollReveal.ts    # Thin wrapper around Framer Motion useInView — returns ref + animation variant state; entry animation: opacity 0→1, y 20→0, duration 0.5s easeOut
   lib/
     motion.ts             # Shared Framer Motion variants
 ```
@@ -237,6 +238,6 @@ src/
 
 - Authentication or user accounts
 - Backend API calls
-- Multi-language support (page is in English with Portuguese CTAs)
+- Multi-language support (page is in Portuguese throughout, with the hero headline intentionally in English for a premium/international feel — all other copy including section titles, card descriptions, process steps, and CTAs is Portuguese)
 - Blog or content management
 - Real Claude API integration (this is a showcase, not a live demo)
