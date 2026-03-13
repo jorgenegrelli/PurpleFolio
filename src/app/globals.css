@@ -34,7 +34,7 @@ body {
   }
 
   .text-gradient-purple {
-    background: linear-gradient(135deg, #f4f0ff 0%, #a855f7 100%);
+    background: linear-gradient(135deg, var(--text-primary) 0%, var(--purple-accent) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -42,6 +42,9 @@ body {
 }
 
 @media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
   *,
   *::before,
   *::after {
